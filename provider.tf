@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "kubernetes" {
-  version     = ">= 2.0.0"
+  version     = ">= 0.13"
 
   load_config_file = module.eks.kubeconfig_filename != "" ? true : false
   config_path      = module.eks.kubeconfig_filename
