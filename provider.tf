@@ -12,6 +12,8 @@ terraform {
 }
 
 provider "kubernetes" {
-    config_path    = "~/.kube/config"
-    #config_context = "minikube"
+  version     = "~> 1.10"
+
+  load_config_file = module.eks.kubeconfig_filename != "" ? true : false
+  config_path      = module.eks.kubeconfig_filename
 }
